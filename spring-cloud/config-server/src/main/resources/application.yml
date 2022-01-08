@@ -7,4 +7,4 @@ spring:
     config:
       server:
         git:
-          uri: file:///home/dmitry/programming/learn/java/courses/udemy/spring-microservices_in28minutes/spring-cloud/git-localconfig-repo
+          uri: file:///home/dmitry/programming/learn/java/courses/udemy/spring-microservices_in28minutes/spring-cloud-kubernetes/spring-cloud/git-localconfig-repo
