@@ -7,4 +7,5 @@ spring:
     config:
       server:
         git:
-          uri: file:///home/dmitry/programming/learn/java/courses/udemy/spring-microservices_in28minutes/spring-cloud-kubernetes/spring-cloud/git-localconfig-repo
+          uri: https://github.com/sumtsov/currency-operations-spring-cloud-kubernetes.git
+          search-paths: spring-cloud/git-config-repo
