@@ -3,11 +3,12 @@
 
 ## Run locally
 1) Build docker images by executing `mvn spring-boot:build-image -DskipTests` for:
-   - api-gateway
-   - config-server
-   - currency-conversion-service
-   - currency-exchange-service
-   - limits-service and naming-server
+   - [api-gateway](api-gateway/)
+   - [config-server](config-server/)
+   - [naming-server](naming-server/)
+   - [currency-conversion-service](currency-conversion-service/)
+   - [currency-exchange-service](currency-exchange-service/)
+   - [limits-service](limits-service/)
 
 2) Start docker containers: `docker-compose up`
 
