@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "e3ceb22f-37d3-4f94-9452-66f0161f39d4",
+		"name": "currency-operations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "currency-conversion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "currency-exchange",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8765/currency-exchange/from/{{from}}/to/{{to}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8765",
+					"path": [
+						"currency-exchange",
+						"from",
+						"{{from}}",
+						"to",
+						"{{to}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "from",
+			"value": "USD",
+			"type": "string"
+		},
+		{
+			"key": "to",
+			"value": "INR",
+			"type": "string"
+		},
+		{
+			"key": "quantity",
+			"value": "10",
+			"type": "string"
+		}
+	]
+}

@@ -17,6 +17,6 @@
 - Config Server - http://localhost:8888
 - Zipkin Tracing Server - http://localhost:9411
 - RabbitMQ Management - http://localhost:15672
-- Currency Conversion, Currency Exchange - [postman collections]
+- Currency Conversion, Currency Exchange API - [postman collection](docs/postman-collections)
 
 ## API Reference
