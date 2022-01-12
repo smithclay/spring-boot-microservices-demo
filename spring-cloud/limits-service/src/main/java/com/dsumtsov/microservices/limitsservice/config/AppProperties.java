@@ -8,7 +8,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Setter
 @ConfigurationProperties("limits-service")
 public class AppProperties {
-
     private int min;
     private int max;
 }

@@ -1,4 +1,4 @@
-version: '3.7'
+version: '3.8'
 
 services: 
     currency-exchange-service:
@@ -7,15 +7,17 @@ services:
             - "8000:8000"
         networks: 
             - currency-network
-        depends_on: 
-            - naming-server
-            - rabbitmq
         environment: 
             EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka 
             SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411/
             RABBIT_URI: amqp://guest:guest@rabbitmq:5672
             SPRING_RABBITMQ_HOST: rabbitmq
             SPRING_ZIPKIN_SENDER_TYPE: rabbit
+        depends_on: 
+            naming-server:
+                condition: service_started
+            rabbitmq:
+                condition: service_healthy      
             
     currency-conversion-service:
         image: sumtsov/currency-conversion-service:0.0.1-SNAPSHOT
@@ -23,15 +25,17 @@ services:
             - "8100:8100"
         networks: 
             - currency-network
-        depends_on: 
-            - naming-server
-            - rabbitmq
         environment: 
             EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka 
             SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411/
             RABBIT_URI: amqp://guest:guest@rabbitmq:5672
             SPRING_RABBITMQ_HOST: rabbitmq
             SPRING_ZIPKIN_SENDER_TYPE: rabbit
+        depends_on: 
+            naming-server:
+                condition: service_started
+            rabbitmq:
+                condition: service_healthy       
 
     api-gateway:
         image: sumtsov/api-gateway:0.0.1-SNAPSHOT
@@ -39,42 +43,79 @@ services:
             - "8765:8765"
         networks: 
             - currency-network
-        depends_on: 
-            - naming-server
-            - rabbitmq
         environment: 
             EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
             SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411/
             RABBIT_URI: amqp://guest:guest@rabbitmq:5672
             SPRING_RABBITMQ_HOST: rabbitmq
             SPRING_ZIPKIN_SENDER_TYPE: rabbit
+        depends_on: 
+            naming-server:
+                condition: service_started
+            rabbitmq:
+                condition: service_healthy  
 
+    limits-service:
+        image: sumtsov/limits-service:0.0.1-SNAPSHOT     
+        ports: 
+            - "8080:8080"
+        networks: 
+            - currency-network
+        environment: 
+            EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
+            SPRING.ZIPKIN.BASEURL: http://zipkin-server:9411/
+            SPRING_CLOUD_CONFIG_URI: http://config-server:8888
+            RABBIT_URI: amqp://guest:guest@rabbitmq:5672
+            SPRING_RABBITMQ_HOST: rabbitmq
+            SPRING_ZIPKIN_SENDER_TYPE: rabbit
+        depends_on: 
+            config-server:
+                condition: service_started
+            naming-server:
+                condition: service_started
+            rabbitmq:
+                condition: service_healthy           
+
+    config-server:
+        image: sumtsov/config-server:0.0.1-SNAPSHOT
+        ports:
+            - "8888:8888"
+        networks:
+            - currency-network
+        environment:
+            EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
+        depends_on:
+            naming-server:
+                condition: service_started    
+    
     naming-server:
         image: sumtsov/naming-server:0.0.1-SNAPSHOT
         ports: 
             - "8761:8761"
         networks: 
-            - currency-network
-
+            - currency-network   
+        
     zipkin-server:
         image: openzipkin/zipkin:2.23
         ports: 
             - "9411:9411"
         networks: 
             - currency-network
-        depends_on: 
-            - rabbitmq
         environment: 
             RABBIT_URI: amqp://guest:guest@rabbitmq:5672
-        restart: always
+        depends_on: 
+            rabbitmq:
+                condition: service_healthy   
 
     rabbitmq:
         image: rabbitmq:3.8.12-management
         ports: 
             - "5672:5672"
-            - "15672:15672"
+            - "15672:15672"  
         networks: 
             - currency-network
+        healthcheck:    
+            test: ["CMD", "rabbitmqctl", "status"]             
 
 networks: 
     currency-network:

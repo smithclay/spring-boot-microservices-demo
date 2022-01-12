@@ -10,7 +10,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CurrencyConversionDTO {
-    private Long id;
     private String from;
     private String to;
     private BigDecimal quantity;

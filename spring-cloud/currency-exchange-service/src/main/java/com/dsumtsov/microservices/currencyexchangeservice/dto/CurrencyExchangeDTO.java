@@ -1,4 +1,4 @@
-package com.dsumtsov.microservices.currencyconversionservice.dto;
+package com.dsumtsov.microservices.currencyexchangeservice.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,8 +10,8 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CurrencyExchangeDTO {
-    private String to;
     private String from;
-    private String environment;
+    private String to;
     private BigDecimal conversionMultiple;
+    private String environment;
 }
