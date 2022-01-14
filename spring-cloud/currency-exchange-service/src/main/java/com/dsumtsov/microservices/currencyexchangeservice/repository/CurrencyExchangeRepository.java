@@ -1,6 +1,6 @@
 package com.dsumtsov.microservices.currencyexchangeservice.repository;
 
-import com.dsumtsov.microservices.currencyexchangeservice.entity.CurrencyExchange;
+import com.dsumtsov.microservices.currencyexchangeservice.model.CurrencyExchange;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.stereotype.Repository;
