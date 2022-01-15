@@ -1,7 +1,7 @@
 ## Architecture
 ![Currency Operations Microservices architecture](docs/images/architecture-diagram.png)
 
-## Run locally
+## How to run
 1) Build docker images by executing `mvn spring-boot:build-image -DskipTests` for:
    - [api-gateway](api-gateway/)
    - [config-server](config-server/)
@@ -20,3 +20,7 @@
 - Currency Conversion, Currency Exchange API - [postman collection](docs/postman-collections)
 
 ## API Reference
+- swagger-ui for Currency Conversion API: `http://localhost:8765/currency-conversion/swagger-ui.html`
+- json for Currency Conversion API: `http://localhost:8765/currency-conversion/v2/api-docs`
+- swagger-ui for Currency Exchange API: `http://localhost:8080/currency-exchange/swagger-ui.html`
+- json for Currency Exchange API: `http://localhost:8765/currency-exchange/v2/api-docs`

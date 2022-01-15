@@ -1,5 +1,4 @@
 # Currency Operations Sample Application
-
 Currency Operations is a microservices-based sample application
 
 ## Features
