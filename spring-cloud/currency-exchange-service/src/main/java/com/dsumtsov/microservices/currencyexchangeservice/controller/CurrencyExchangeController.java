@@ -2,6 +2,7 @@ package com.dsumtsov.microservices.currencyexchangeservice.controller;
 
 import com.dsumtsov.microservices.currencyexchangeservice.dto.CurrencyExchangeDTO;
 import com.dsumtsov.microservices.currencyexchangeservice.service.CurrencyExchangeService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 
 import lombok.extern.slf4j.Slf4j;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Slf4j
 @RestController
+@Tag(name = "currency-exchange")
 @RequestMapping("/currency-exchange")
 @RequiredArgsConstructor
 public class CurrencyExchangeController {

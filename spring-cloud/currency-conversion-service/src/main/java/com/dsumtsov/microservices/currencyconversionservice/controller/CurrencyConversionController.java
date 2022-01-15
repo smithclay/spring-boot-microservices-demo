@@ -2,6 +2,7 @@ package com.dsumtsov.microservices.currencyconversionservice.controller;
 
 import com.dsumtsov.microservices.currencyconversionservice.dto.CurrencyConversionDTO;
 import com.dsumtsov.microservices.currencyconversionservice.service.CurrencyConversionService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import java.math.BigDecimal;
 
 @Slf4j
 @RestController
+@Tag(name = "currency-conversion")
 @RequestMapping("/currency-conversion")
 @RequiredArgsConstructor
 public class CurrencyConversionController {
