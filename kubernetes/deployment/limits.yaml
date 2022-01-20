@@ -2,41 +2,43 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: currency-exchange
-  name: currency-exchange
+    app: limits
+  name: limits
   namespace: default
 spec:
   ports:
   - protocol: TCP
-    port: 8000
-    nodePort: 31317
+    port: 8080
   selector:
-    app: currency-exchange
-  type: NodePort
----  
+    app: limits
+  type: ClusterIP
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
     deployment.kubernetes.io/revision: "1"
   labels:
-    app: currency-exchange
-  name: currency-exchange
+    app: limits
+  name: limits
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: currency-exchange
+      app: limits
   template:
     metadata:
       labels:
-        app: currency-exchange
+        app: limits
     spec:
       containers:
-      - name: currency-exchange-service
-        image: sumtsov/currency-exchange-service:0.0.2-SNAPSHOT
+      - name: limits-service
+        image: sumtsov/limits-service:0.0.2-SNAPSHOT
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 8000
-      restartPolicy: Always
+        - containerPort: 8080
+        envFrom:
+          - configMapRef:
+              name: limits 
+      restartPolicy: Always  

@@ -1,1 +1,14 @@
+server:
+  port: 8080
 
+spring:
+  application:
+    name: limits-service
+  sleuth:
+    sampler:
+      probability: 1.0
+
+app:
+  limits:
+    min: ${LIMITS_MIN:0}
+    max: ${LIMITS_MAX:1000}

@@ -1,5 +1,6 @@
 server:
   port: 8000
+
 spring:
   application:
     name: currency-exchange-service
@@ -13,8 +14,9 @@ spring:
   sleuth:
     sampler:
       probability: 1.0
+
 springdoc:
   swagger-ui:
     path: /currency-exchange/swagger-ui.html
   api-docs:
-    path: /currency-conversion/v3/api-docs
+    path: /currency-exchange/v3/api-docs

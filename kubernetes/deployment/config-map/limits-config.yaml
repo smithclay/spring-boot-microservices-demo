@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  LIMITS_MIN: "10"
+  LIMITS_MAX: "1000"
+kind: ConfigMap
+metadata:
+  name: limits
+  namespace: default

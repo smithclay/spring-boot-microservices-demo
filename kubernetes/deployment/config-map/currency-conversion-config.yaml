@@ -1,0 +1,8 @@
+apiVersion: v1
+data:
+  CURRENCY_EXCHANGE_URI: http://currency-exchange
+  LIMITS_URI: http://limits
+kind: ConfigMap
+metadata:
+  name: currency-conversion
+  namespace: default

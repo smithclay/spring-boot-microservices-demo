@@ -1,11 +1,13 @@
 server:
   port: 8100
+
 spring:
   application:
     name: currency-conversion-service
   sleuth:
     sampler:
       probability: 1.0
+
 eureka:
   client:
     serviceUrl:
@@ -15,6 +17,7 @@ eureka:
   instance:
     hostname: localhost
     prefer-ip-address: true
+
 springdoc:
   swagger-ui:
     path: /currency-conversion/swagger-ui.html
