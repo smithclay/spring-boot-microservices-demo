@@ -21,6 +21,6 @@
 
 ## API Reference
 - swagger-ui for Currency Conversion API: `http://localhost:8765/currency-conversion/swagger-ui.html`
-- json for Currency Conversion API: `http://localhost:8765/currency-conversion/v2/api-docs`
+- json for Currency Conversion API: `http://localhost:8765/currency-conversion/v3/api-docs`
 - swagger-ui for Currency Exchange API: `http://localhost:8080/currency-exchange/swagger-ui.html`
-- json for Currency Exchange API: `http://localhost:8765/currency-exchange/v2/api-docs`
+- json for Currency Exchange API: `http://localhost:8765/currency-exchange/v3/api-docs`
