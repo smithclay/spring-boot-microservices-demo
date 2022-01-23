@@ -1,47 +1,22 @@
 {
 	"info": {
-		"_postman_id": "a57f01b9-9bc7-4751-9991-c2620d41101a",
-		"name": "currency-operations",
+		"_postman_id": "ab59dbcc-7f74-4702-9bb3-8a57acd02901",
+		"name": "currency-operations-k8s",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "currency-conversion",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8765/currency-conversion/from/{{from}}/to/{{to}}/quantity/{{quantity}}",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8765",
-					"path": [
-						"currency-conversion",
-						"from",
-						"{{from}}",
-						"to",
-						"{{to}}",
-						"quantity",
-						"{{quantity}}"
-					]
-				}
-			},
-			"response": []
-		},
 		{
 			"name": "currency-exchange",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8765/currency-exchange/from/{{from}}/to/{{to}}",
+					"raw": "http://currency-operations.all/currency-exchange/from/{{from}}/to/{{to}}",
 					"protocol": "http",
 					"host": [
-						"localhost"
+						"currency-operations",
+						"all"
 					],
-					"port": "8765",
 					"path": [
 						"currency-exchange",
 						"from",
@@ -50,6 +25,14 @@
 						"{{to}}"
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "currency-conversion",
+			"request": {
+				"method": "GET",
+				"header": []
 			},
 			"response": []
 		}

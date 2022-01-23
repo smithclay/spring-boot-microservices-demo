@@ -10,6 +10,7 @@
 To be able to access all services via `http://currency-operations.all/`:
 1) Enable ingress: `minikube addons enable ingress`
 2) Update /etc/hosts file: `echo "$(minikube ip) currency-operations.all" | sudo tee -a /etc/hosts`
+3) Explore [postman collections](docs/postman-collections)
 
 ## API Reference
 - swagger-ui for Currency Conversion API: `http://currency-operations.all/currency-conversion/swagger-ui.html`
