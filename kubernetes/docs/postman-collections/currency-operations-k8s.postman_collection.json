@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ab59dbcc-7f74-4702-9bb3-8a57acd02901",
+		"_postman_id": "86a4d801-de9e-4377-9286-acb9d5ddd92e",
 		"name": "currency-operations-k8s",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -32,7 +32,24 @@
 			"name": "currency-conversion",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://currency-operations.all/currency-conversion/from/{{from}}/to/{{to}}/quantity/{{quantity}}",
+					"protocol": "http",
+					"host": [
+						"currency-operations",
+						"all"
+					],
+					"path": [
+						"currency-conversion",
+						"from",
+						"{{from}}",
+						"to",
+						"{{to}}",
+						"quantity",
+						"{{quantity}}"
+					]
+				}
 			},
 			"response": []
 		}
