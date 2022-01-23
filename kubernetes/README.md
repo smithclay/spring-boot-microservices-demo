@@ -3,7 +3,6 @@
    - [currency-conversion-service](currency-conversion-service/)
    - [currency-exchange-service](currency-exchange-service/)
    - [limits-service](limits-service/)
-
 2) Start minikube and create a cluster: `minikube start`
 3) Deploy microservices to a cluster: `kubectl apply -f deployment --recursive`
 

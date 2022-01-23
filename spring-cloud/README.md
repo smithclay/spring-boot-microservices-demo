@@ -9,7 +9,6 @@
    - [currency-conversion-service](currency-conversion-service/)
    - [currency-exchange-service](currency-exchange-service/)
    - [limits-service](limits-service/)
-
 2) Start docker containers: `docker-compose up`
 
 ## Usage
