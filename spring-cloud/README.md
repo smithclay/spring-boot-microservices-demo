@@ -1,5 +1,5 @@
 ## Architecture
-![Currency Operations Microservices architecture](docs/images/architecture-diagram.png)
+![Currency Operations Microservices Architecture](docs/images/architecture-diagram.png)
 
 ## How to run
 1) Build docker images by executing `mvn spring-boot:build-image -DskipTests` for:

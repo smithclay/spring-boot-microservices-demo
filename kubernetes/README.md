@@ -1,10 +1,13 @@
+## Architecture
+![Currency Operations Microservices Architecture](docs/images/architecture-diagram.png)
+
 ## How to run
 1) Build docker images by executing `mvn spring-boot:build-image -DskipTests` for:
    - [currency-conversion-service](currency-conversion-service/)
    - [currency-exchange-service](currency-exchange-service/)
    - [limits-service](limits-service/)
 2) Start minikube and create a cluster: `minikube start`
-3) Deploy microservices to a cluster: `kubectl apply -f deployment --recursive`
+3) Deploy microservices to a cluster: `kubectl apply -f ./deployment --recursive`
 
 ## Usage 
 To be able to access all services via `http://currency-operations.all/`:
