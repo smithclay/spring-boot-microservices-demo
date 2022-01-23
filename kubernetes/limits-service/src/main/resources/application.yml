@@ -12,3 +12,14 @@ app:
   limits:
     min: ${LIMITS_MIN:0}
     max: ${LIMITS_MAX:1000}
+
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true

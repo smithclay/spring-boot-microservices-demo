@@ -39,4 +39,12 @@ spec:
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
+        readinessProbe:
+          httpGet:
+            port: 8000
+            path: /actuator/health/readiness
+        livenessProbe:
+          httpGet:
+            port: 8000
+            path: /actuator/health/liveness
       restartPolicy: Always

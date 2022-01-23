@@ -20,3 +20,14 @@ springdoc:
     path: /currency-exchange/swagger-ui.html
   api-docs:
     path: /currency-exchange/v3/api-docs
+
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
