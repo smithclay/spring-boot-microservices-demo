@@ -15,9 +15,11 @@ services:
             SPRING_ZIPKIN_SENDER_TYPE: rabbit
         depends_on: 
             naming-server:
-                condition: service_started
+                condition: service_healthy
             rabbitmq:
-                condition: service_healthy      
+                condition: service_healthy
+        healthcheck:
+            test: curl --fail --silent localhost:8000/actuator/health | grep UP || exit 1             
             
     currency-conversion-service:
         image: sumtsov/currency-conversion-service:0.0.1-SNAPSHOT
@@ -33,9 +35,11 @@ services:
             SPRING_ZIPKIN_SENDER_TYPE: rabbit
         depends_on: 
             naming-server:
-                condition: service_started
+                condition: service_healthy
             rabbitmq:
-                condition: service_healthy       
+                condition: service_healthy
+        healthcheck:
+            test: curl --fail --silent localhost:8100/actuator/health | grep UP || exit 1              
 
     api-gateway:
         image: sumtsov/api-gateway:0.0.1-SNAPSHOT
@@ -51,9 +55,11 @@ services:
             SPRING_ZIPKIN_SENDER_TYPE: rabbit
         depends_on: 
             naming-server:
-                condition: service_started
+                condition: service_healthy
             rabbitmq:
-                condition: service_healthy  
+                condition: service_healthy
+        healthcheck:
+            test: curl --fail --silent localhost:8765/actuator/health | grep UP || exit 1          
 
     limits-service:
         image: sumtsov/limits-service:0.0.1-SNAPSHOT     
@@ -70,11 +76,13 @@ services:
             SPRING_ZIPKIN_SENDER_TYPE: rabbit
         depends_on: 
             config-server:
-                condition: service_started
+                condition: service_healthy
             naming-server:
-                condition: service_started
+                condition: service_healthy
             rabbitmq:
-                condition: service_healthy           
+                condition: service_healthy
+        healthcheck:
+            test: curl --fail --silent localhost:8080/actuator/health | grep UP || exit 1                   
 
     config-server:
         image: sumtsov/config-server:0.0.1-SNAPSHOT
@@ -86,7 +94,9 @@ services:
             EUREKA.CLIENT.SERVICEURL.DEFAULTZONE: http://naming-server:8761/eureka
         depends_on:
             naming-server:
-                condition: service_started    
+                condition: service_healthy
+        healthcheck:
+            test: curl --fail --silent localhost:8888/actuator/health | grep UP || exit 1           
     
     naming-server:
         image: sumtsov/naming-server:0.0.1-SNAPSHOT
@@ -94,6 +104,8 @@ services:
             - "8761:8761"
         networks: 
             - currency-network   
+        healthcheck:
+            test: curl --fail --silent localhost:8761/actuator/health | grep UP || exit 1    
         
     zipkin-server:
         image: openzipkin/zipkin:2.23

@@ -2,14 +2,14 @@
 ![Currency Operations Microservices Architecture](docs/images/architecture-diagram.png)
 
 ## How to run
-1) Build docker images by executing `mvn spring-boot:build-image -DskipTests` for:
+1) Build docker images by executing `mvn compile jib:dockerBuild` for:
    - [api-gateway](api-gateway/)
    - [config-server](config-server/)
    - [naming-server](naming-server/)
    - [currency-conversion-service](currency-conversion-service/)
    - [currency-exchange-service](currency-exchange-service/)
    - [limits-service](limits-service/)
-2) Start docker containers: `docker-compose up`
+2) Start docker containers: `docker-compose up -d`
 
 ## Usage
 - Eureka Naming Server - http://localhost:8762
