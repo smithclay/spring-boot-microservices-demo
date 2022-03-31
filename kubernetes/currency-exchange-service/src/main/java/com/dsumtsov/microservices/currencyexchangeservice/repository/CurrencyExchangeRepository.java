@@ -1,6 +1,6 @@
 package com.dsumtsov.microservices.currencyexchangeservice.repository;
 
-import com.dsumtsov.microservices.currencyexchangeservice.model.CurrencyExchange;
+import com.dsumtsov.microservices.currencyexchangeservice.entity.CurrencyExchange;
 import lombok.NonNull;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -2,7 +2,7 @@ package com.dsumtsov.microservices.currencyexchangeservice.service.impl;
 
 import com.dsumtsov.microservices.currencyexchangeservice.dto.CurrencyExchangeDTO;
 import com.dsumtsov.microservices.currencyexchangeservice.exception.ExchangeNotFoundException;
-import com.dsumtsov.microservices.currencyexchangeservice.model.CurrencyExchange;
+import com.dsumtsov.microservices.currencyexchangeservice.entity.CurrencyExchange;
 import com.dsumtsov.microservices.currencyexchangeservice.repository.CurrencyExchangeRepository;
 import com.dsumtsov.microservices.currencyexchangeservice.service.CurrencyExchangeService;
 import lombok.RequiredArgsConstructor;

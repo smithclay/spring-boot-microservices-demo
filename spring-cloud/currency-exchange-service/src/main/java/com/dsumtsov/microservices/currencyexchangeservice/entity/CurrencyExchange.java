@@ -1,4 +1,4 @@
-package com.dsumtsov.microservices.currencyexchangeservice.model;
+package com.dsumtsov.microservices.currencyexchangeservice.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
