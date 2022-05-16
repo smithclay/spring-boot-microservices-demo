@@ -1,5 +1,5 @@
 # Currency Operations
-Currency Operations is a microservices-based sample project
+Sample project that demonstrates how to develop, deploy and run microservices using Spring Cloud and Kubernetes
 
 ## Features
 - Currency Conversion API
