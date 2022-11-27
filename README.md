@@ -1,4 +1,4 @@
-# Currency Operations
+# Spring Boot Microservices Demo
 Sample project that demonstrates how to develop, deploy and run microservices using Spring Cloud and Kubernetes
 
 ## Features
