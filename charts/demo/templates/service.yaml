@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: currency-conversion
+  name: currency-conversion
+  namespace: default
+spec:
+  ports:
+  - port: 8100
+    protocol: TCP
+    nodePort: 31316
+  selector:
+    app: currency-conversion
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: currency-exchange
+  name: currency-exchange
+  namespace: default
+spec:
+  ports:
+  - protocol: TCP
+    port: 8000
+    nodePort: 31317
+  selector:
+    app: currency-exchange
+  type: NodePort
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: limits
+  name: limits
+  namespace: default
+spec:
+  ports:
+  - protocol: TCP
+    port: 8080
+  selector:
+    app: limits
+  type: ClusterIP
