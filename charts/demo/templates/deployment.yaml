@@ -23,7 +23,7 @@ spec:
       {{- end }}
       containers:
       - name: currency-conversion-service
-        image: sumtsov/currency-conversion-service:{{ .Values.image.tag | default "latest" }}
+        image: ghcr.io/smithclay/spring-boot-microservices-demo:currency-conversion-service-{{ .Values.image.tag | default "latest" }}
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8100
@@ -35,6 +35,9 @@ spec:
           httpGet:
             port: 8100
             path: /actuator/health/liveness
+        resources:
+          limits:
+            memory: 768Mi
         envFrom:
           - configMapRef:
               name: currency-conversion 
@@ -65,7 +68,7 @@ spec:
       {{- end }}
       containers:
       - name: currency-exchange-service
-        image: sumtsov/currency-exchange-service:{{ .Values.image.tag | default "latest" }}
+        image: ghcr.io/smithclay/spring-boot-microservices-demo:currency-exchange-service-{{ .Values.image.tag | default "latest" }}
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8000
@@ -77,6 +80,9 @@ spec:
           httpGet:
             port: 8000
             path: /actuator/health/liveness
+        resources:
+          limits:
+            memory: 768Mi
       restartPolicy: Always
 ---
 apiVersion: apps/v1
@@ -104,10 +110,13 @@ spec:
       {{- end }}
       containers:
       - name: limits-service
-        image: sumtsov/limits-service:{{ .Values.image.tag | default "latest" }}
+        image: ghcr.io/smithclay/spring-boot-microservices-demo:limits-service-{{ .Values.image.tag | default "latest" }}
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 8080
+        envFrom:
+          - configMapRef:
+              name: limits 
         readinessProbe:
           httpGet:
             port: 8080
@@ -116,7 +125,7 @@ spec:
           httpGet:
             port: 8080
             path: /actuator/health/liveness
-        envFrom:
-          - configMapRef:
-              name: limits 
+        resources:
+          limits:
+            memory: 768Mi
       restartPolicy: Always
